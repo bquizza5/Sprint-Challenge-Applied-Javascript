@@ -6,7 +6,7 @@ class Carousel {
         this.carousel = carousel;
         this.leftButton = document.querySelector('.left-button');
         this.rightButton = document.querySelector('.right-button');
-        this.displayedImg = document.querySelector(`.carousel-img[data-tab='${imgCounter}']`);
+        this.imgList = document.querySelectorAll('.carousel-img');
         this.leftButton.addEventListener('click', () => this.leftClick());
         this.rightButton.addEventListener('click', () => this.rightClick());
         this.displayImg();
@@ -25,14 +25,14 @@ class Carousel {
             console.log(imgCounter);
             this.displayImg();
         } else {
-            imgCounter = 4;
+            imgCounter = (this.imgList.length);
             console.log(imgCounter);
             this.displayImg();
         }
         this.displayImg();
     }
     rightClick() {
-        if(imgCounter != 4){
+        if(imgCounter != this.imgList.length){
             imgCounter += 1;
             console.log(imgCounter);
             this.displayImg();
